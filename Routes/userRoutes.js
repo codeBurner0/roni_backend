@@ -8,6 +8,11 @@ const cors=require('cors')
 router.use(express.json());
 router.use(cors())
 
+router.get('/',(req,res)=>{
+    res.send("Hello from the server side");
+})
+
+router
 router.get('/user/:id',async(req,res)=>{
     const id=req.params.id;
    let result=await User.findOne({_id:id}).select('-password');
